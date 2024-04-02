@@ -1,5 +1,4 @@
 /* Setup
-Set up the project repository, initialize the Node.js application, and install necessary dependencies (Express.js, EJS).
 Create the application structure, including routes, views, and static files.
 Set up the Express.js server and define the necessary routes.
 
@@ -15,4 +14,27 @@ Style the application. This includes creating a CSS file, linking it to your EJS
 Test the application on different devices and browsers to ensure the styling works correctly.
 Fix any bugs or issues that came up during testing. */
 
+import express from "express";
 
+const app = express();
+const port = 3000;
+
+app.get("/", (req, res) => {
+    res.render("index.ejs");
+});
+
+app.get("/create", (req, res) => {
+    res.render("blogCreation.ejs");
+});
+
+app.get("/edit", (req, res) => {
+    res.render("blogEdit.ejs");
+});
+
+app.get("/view", (req, res) => {
+    res.render("blogView.ejs");
+});
+
+app.listen(port, () => {
+    console.log(`Listening on port: ${port}`);
+});
