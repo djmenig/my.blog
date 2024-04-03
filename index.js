@@ -1,8 +1,4 @@
-/* Setup
-Create the application structure, including routes, views, and static files.
-Set up the Express.js server and define the necessary routes.
-
-Implementing Features
+/*Implementing Features
 Implement the post creation feature. This includes creating the form on the home page and handling the form submission in the server.
 Implement the post viewing feature. This includes displaying all the posts on the home page.
 Implement the post edit feature. This includes using a form to load the existing blog post and allowing the user to edit and save the post.
@@ -24,15 +20,15 @@ app.get("/", (req, res) => {
 });
 
 app.get("/create", (req, res) => {
-    res.render("blogCreation.ejs");
+    res.render("postCreation.ejs");
 });
 
 app.get("/edit", (req, res) => {
-    res.render("blogEdit.ejs");
+    res.render("postEdit.ejs");
 });
 
 app.get("/view", (req, res) => {
-    res.render("blogView.ejs");
+    res.render("postView.ejs");
 });
 
 app.listen(port, () => {
