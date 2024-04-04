@@ -30,15 +30,15 @@ app.post("/submit", (req, res) => {
     const newBlogPost = { title: req.body.postTitle, text: req.body.postText };
     blogEntries.push(newBlogPost);
     console.log(blogEntries[0].title);
-    res.render("index.ejs", { blogEntries });
+    res.redirect("/");
 });
 
 app.get("/edit", (req, res) => {
     res.render("postEdit.ejs");
 });
 
-app.get("/view", (req, res) => {
-    res.render("postView.ejs");
+app.post("/view", (req, res) => {
+    res.render("postView.ejs", { name: req.body["text"] });
 });
 
 app.listen(port, () => {
