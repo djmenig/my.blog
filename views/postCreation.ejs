@@ -2,8 +2,8 @@
 
 <h1>create your Blog entry!</h1>
 
-<form>
-    <input type="text" class="postTitle" name="title" value="Title of Blog Post" />
-    <input type="text" class="postText" name="text" />
-    <input type="submit" id="submitButton" value="submit" />
-</form>
+<form action="/submit" method="POST">
+    <input type="text" class="postTitle" name="postTitle" placeholder="Title of Blog Post" />
+    <input type="text" class="postText" name="postText" placeholder="Insert text here..."/>
+    <input type="submit" class="submitButton" value="submit" />
+</form> 

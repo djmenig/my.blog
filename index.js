@@ -1,5 +1,4 @@
 /*Implementing Features
-Implement the post creation feature. This includes creating the form on the home page and handling the form submission in the server.
 Implement the post viewing feature. This includes displaying all the posts on the home page.
 Implement the post edit feature. This includes using a form to load the existing blog post and allowing the user to edit and save the post.
 Implement the delete feature. This allows the user to click a button and remove the post from the home page.
@@ -11,16 +10,27 @@ Test the application on different devices and browsers to ensure the styling wor
 Fix any bugs or issues that came up during testing. */
 
 import express from "express";
+import bodyParser from "body-parser";
+
 
 const app = express();
 const port = 3000;
 
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.get("/", (req, res) => {
-    res.render("index.ejs");
+    res.render("index.ejs", { blogEntries });
 });
 
 app.get("/create", (req, res) => {
     res.render("postCreation.ejs");
+});
+
+app.post("/submit", (req, res) => {
+    const newBlogPost = { title: req.body.postTitle, text: req.body.postText };
+    blogEntries.push(newBlogPost);
+    console.log(blogEntries[0].title);
+    res.render("index.ejs", { blogEntries });
 });
 
 app.get("/edit", (req, res) => {
@@ -34,3 +44,5 @@ app.get("/view", (req, res) => {
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
 });
+
+const blogEntries = [];
