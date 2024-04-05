@@ -1,5 +1,4 @@
 /*Implementing Features
-Implement the post viewing feature. This includes displaying all the posts on the home page.
 Implement the post edit feature. This includes using a form to load the existing blog post and allowing the user to edit and save the post.
 Implement the delete feature. This allows the user to click a button and remove the post from the home page.
 Test the application to ensure that post creation and viewing are working correctly.
@@ -33,15 +32,18 @@ app.post("/submit", (req, res) => {
     res.redirect("/");
 });
 
-app.get("/edit", (req, res) => {
-    res.render("postEdit.ejs");
-});
-
 app.post("/view", (req, res) => {
     res.render("postView.ejs", { 
         title: req.body["title"],
         text: req.body["text"],
      });
+});
+
+app.post("/edit", (req, res) => {
+    res.render("postEdit.ejs", {
+        title: req.body["title"],
+        text: req.body["text"],
+    });
 });
 
 app.listen(port, () => {

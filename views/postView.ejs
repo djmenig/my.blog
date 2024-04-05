@@ -1,3 +1,9 @@
 <h1>I'm the VIEWING page!</h1>
 <h2><%= title %></h2>
 <p> <%= text %></p>
+
+<form action="/edit" method="POST">
+    <input type="hidden" name="title" value="<% title %>" />
+    <input type="hidden" name="text" value="<% text %>" />
+    <input type="submit" class="editPostButton" value="edit blog entry" /> 
+</form>
