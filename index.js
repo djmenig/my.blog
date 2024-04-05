@@ -38,7 +38,10 @@ app.get("/edit", (req, res) => {
 });
 
 app.post("/view", (req, res) => {
-    res.render("postView.ejs", { name: req.body["text"] });
+    res.render("postView.ejs", { 
+        title: req.body["title"],
+        text: req.body["text"],
+     });
 });
 
 app.listen(port, () => {

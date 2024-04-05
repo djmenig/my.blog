@@ -11,8 +11,15 @@
         <% console.log("no blog posts!") %>
     <% } else { 
         locals.blogEntries.forEach((object) => { %>
-        <li><%= object.title %></li>
+        <li>
+            <form action="/view" method="POST">
+                <input type="hidden" name="title" value="<%= object.title %>" />
+                <input type="hidden" name="text" value="<%= object.text %>" />
+                <input type="submit" class="blogPostViewLink" value="<%= object.title %>" />
+                <% console.log(`Blog Post Title: ${object.title} Blog Post Text: ${object.text}`) %>
+            </form>
+        </li>
         <% }) %>
-        <% console.log(locals.blogEntries) %>
+        <% console.log(locals.blogEntries) %>   
     <% } %>
 </ul>
