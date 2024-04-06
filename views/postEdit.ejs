@@ -1,6 +1,11 @@
+<!-- import header -->
+
 <h1>I'm the EDIT page!</h1>
+
 <form action="/submit" method="POST">
     <input type="text" class="postTitleBox" name="title" value="<%= title %>" />
-    <textarea row="10" column="30" class="postTextBox" name="text" value="<%= text %>"></textarea>
+    <textarea row="10" column="30" class="postTextBox" name="text"><%= text %></textarea>
     <input type="submit" class="submitButton" value="submit" />
 </form>
+
+<!-- import footer -->

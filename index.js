@@ -46,6 +46,10 @@ app.post("/edit", (req, res) => {
     });
 });
 
+//CREATE NEW APP.POST THAT DUPLICATES /SUBMIT, BUT INSTEAD UPDATES THE ARRAY TO REPLACE INSTEAD OF PUSH
+//OR
+//ADD CONDITIONAL STATEMENT TO THE /SUMIT ROUTE THAT REPLACES IF IT EXISTS ELSE IT PUSHES IT TO OBJECT ARRAY
+
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
 });
