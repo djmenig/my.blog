@@ -1,8 +1,4 @@
-/*Implementing Features
-Implement the delete feature. This allows the user to click a button and remove the post from the home page.
-Test the application to ensure that post creation and viewing are working correctly.
-
-Styling and Polishing
+/*Styling and Polishing
 Style the application. This includes creating a CSS file, linking it to your EJS templates, and writing CSS or using Bootstrap/Flexbox/Grid to style the application.
 Test the application on different devices and browsers to ensure the styling works correctly.
 Fix any bugs or issues that came up during testing. */
@@ -59,6 +55,14 @@ app.post("/saveEdit", (req, res) => {
     blogEntries[index] = { title: req.body.title, text: req.body.text };
     res.redirect("/");
 })
+
+//delete post button
+app.post("/deletePost", (req, res) => {
+    const index = req.body.index;
+    blogEntries.splice(index, 1);
+    res.redirect("/");
+    console.log(index);
+});
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);
