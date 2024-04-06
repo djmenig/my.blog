@@ -1,4 +1,4 @@
-<!-- import header -->
+<%- include("partials/header.ejs") %>
 
 <h1>I'm the EDIT page!</h1>
 
@@ -8,6 +8,5 @@
     <input type="hidden" name="index" value="<%= index %>" />
     <input type="submit" class="submitButton" value="submit" />
 </form>
-<p>Index is: <%= index %></p>
 
-<!-- import footer -->
+<%- include("partials/footer.ejs") %>

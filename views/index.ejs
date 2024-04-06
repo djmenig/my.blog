@@ -1,3 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my.Blog</title>
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+
 <h1><a href="/">my.Blog</a></h1>
 <nav>
     <ul>
@@ -8,7 +18,6 @@
 <ul>
     <% if(locals.blogEntries.length === 0) { %>
         <h2>No Blog Posts!</h2>
-        <% console.log("no blog posts!") %>
     <% } else { 
         locals.blogEntries.forEach((object) => { %>
         <li>
@@ -18,14 +27,20 @@
                 <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
                 <input type="submit" class="blogPostViewLink" value="<%= object.title %>" />
             </form>
-            <form action="/deletePost" method="POST">
+            <form  action="/deletePost" method="POST">
                 <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
-                <input type="submit" class="deleteButton" value="Delete" />    
+                <input type="submit" class="deleteButton" value="Delete" /> <!-- USE AN IMAGE OF A TRASHCAN -->
+            </form>
+            <form action="/edit" method="POST">
+                <input type="hidden" name="title" value="<%= object.title %>" />
+                <input type="hidden" name="text" value="<%= object.text %>" />
+                <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
+                <input type="submit" class="editButton" value="edit" /> 
             </form>
         </li>
-        <% }) %>
-        <% console.log(locals.blogEntries) %>   
+        <% }) %> 
     <% } %>
 </ul>
 
-<!-- import footer  -->
+<%- include("partials/footer.ejs") %>
+</html>
