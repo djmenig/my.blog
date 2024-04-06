@@ -2,10 +2,11 @@
 
 <h1>I'm the EDIT page!</h1>
 
-<form action="/submit" method="POST">
+<form action="/saveEdit" method="POST">
     <input type="text" class="postTitleBox" name="title" value="<%= title %>" />
     <textarea row="10" column="30" class="postTextBox" name="text"><%= text %></textarea>
+    <input type="hidden" name="index" value="<%= index %>" />
     <input type="submit" class="submitButton" value="submit" />
 </form>
-
+<p>Index is: <%= index %></p>
 <!-- import footer -->

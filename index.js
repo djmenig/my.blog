@@ -1,5 +1,4 @@
 /*Implementing Features
-Implement the post edit feature. This includes using a form to load the existing blog post and allowing the user to edit and save the post.
 Implement the delete feature. This allows the user to click a button and remove the post from the home page.
 Test the application to ensure that post creation and viewing are working correctly.
 
@@ -17,38 +16,49 @@ const port = 3000;
 
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//homepage: index.ejs
 app.get("/", (req, res) => {
     res.render("index.ejs", { blogEntries });
 });
 
+//create blog entry: postCreation.ejs
 app.get("/create", (req, res) => {
     res.render("postCreation.ejs");
 });
 
+//receives from postCreation.ejs
 app.post("/submit", (req, res) => {
     const newBlogPost = { title: req.body.postTitle, text: req.body.postText };
     blogEntries.push(newBlogPost);
-    console.log(blogEntries[0].title);
     res.redirect("/");
 });
 
+//receives from index.ejs
+//passes to postView.ejs
 app.post("/view", (req, res) => {
     res.render("postView.ejs", { 
         title: req.body["title"],
         text: req.body["text"],
+        index: req.body["index"],
      });
 });
 
+//receives from postView.ejs
+//passes to postEdit.ejs
 app.post("/edit", (req, res) => {
     res.render("postEdit.ejs", {
         title: req.body["title"],
         text: req.body["text"],
+        index: req.body["index"],
     });
 });
 
-//CREATE NEW APP.POST THAT DUPLICATES /SUBMIT, BUT INSTEAD UPDATES THE ARRAY TO REPLACE INSTEAD OF PUSH
-//OR
-//ADD CONDITIONAL STATEMENT TO THE /SUMIT ROUTE THAT REPLACES IF IT EXISTS ELSE IT PUSHES IT TO OBJECT ARRAY
+//receives from postEdit.ejs
+app.post("/saveEdit", (req, res) => {
+    const index = req.body.index;
+    blogEntries[index] = { title: req.body.title, text: req.body.text };
+    res.redirect("/");
+})
 
 app.listen(port, () => {
     console.log(`Listening on port: ${port}`);

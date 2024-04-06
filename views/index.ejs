@@ -15,8 +15,9 @@
             <form action="/view" method="POST">
                 <input type="hidden" name="title" value="<%= object.title %>" />
                 <input type="hidden" name="text" value="<%= object.text %>" />
+                <input type="hidden" name="index" value="<%= blogEntries.indexOf(object) %>" />
                 <input type="submit" class="blogPostViewLink" value="<%= object.title %>" />
-                <% console.log(`Blog Post Title: ${object.title} Blog Post Text: ${object.text}`) %>
+                <% console.log(`Blog Post Title: ${object.title} Blog Post Text: ${object.text} Index: ${blogEntries.indexOf(object)}`) %>
             </form>
         </li>
         <% }) %>
@@ -24,4 +25,4 @@
     <% } %>
 </ul>
 
-// import footer 
+<!-- import footer  -->
