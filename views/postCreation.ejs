@@ -1,11 +1,14 @@
 <%- include("partials/header.ejs") %>
 
-<h1>create your Blog entry!</h1>
+<div class="postCreationContainer">
+    <h2 class="postCreation">create your Blog post!</h2>
 
-<form action="/submit" method="POST">
-    <input type="text" class="postTitleBox" name="postTitle" placeholder="Title of Blog Post" />
-    <textarea rows="10" columns="30" class="postTextBox" name="postText" placeholder="Insert text here..."></textarea>
-    <input type="submit" class="submitButton" value="submit" />
-</form> 
-
+    <form class="postCreationForm" action="/submit" method="POST">
+        <input type="text" class="postTitleBox" name="postTitle" placeholder="Title of Blog Post" required />
+        <textarea class="postTextBox" name="postText" placeholder="Insert text here..." required></textarea>
+        <div class="submitButtonContainer">
+            <input type="submit" class="submitButton" value="submit" />
+        </div>
+    </form>
+</div>
 <%- include("partials/footer.ejs") %>

@@ -1,12 +1,15 @@
 <%- include("partials/header.ejs") %>
 
-<h1>I'm the EDIT page!</h1>
+<div class="postCreationContainer">
+    <h2 class="postCreation">edit your Blog entry.</h2>
 
-<form action="/saveEdit" method="POST">
-    <input type="text" class="postTitleBox" name="title" value="<%= title %>" />
-    <textarea row="10" column="30" class="postTextBox" name="text"><%= text %></textarea>
-    <input type="hidden" name="index" value="<%= index %>" />
-    <input type="submit" class="submitButton" value="submit" />
-</form>
-
+    <form class="postCreationForm" action="/saveEdit" method="POST">
+        <input type="text" class="postTitleBox" name="title" value="<%= title %>" />
+        <textarea class="postTextBox" name="text"><%= text %></textarea>
+        <input type="hidden" name="index" value="<%= index %>" />
+        <div class="submitButtonContainer">
+            <input type="submit" class="submitButton" value="submit" />
+        </div>
+    </form>
+</div>
 <%- include("partials/footer.ejs") %>

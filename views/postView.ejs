@@ -1,14 +1,16 @@
 <%- include("partials/header.ejs") %>
 
-<h1>I'm the VIEWING page!</h1>
-<h2><%= title %></h2>
-<p> <%= text %></p>
+<div class="postCreationContainer">
+    <h2 class="postCreation">"<%= title %>"</h2>
+    <p class="postViewText"> <%= text %></p>
 
-<form action="/edit" method="POST">
-    <input type="hidden" name="title" value="<%= title %>" />
-    <input type="hidden" name="text" value="<%= text %>" />
-    <input type="hidden" name="index" value="<%= index %>" />
-    <input type="submit" class="editPostButton" value="edit blog entry" /> 
-</form>
-
+    <form action="/edit" method="POST">
+        <input type="hidden" name="title" value="<%= title %>" />
+        <input type="hidden" name="text" value="<%= text %>" />
+        <input type="hidden" name="index" value="<%= index %>" />
+        <div class="submitButtonContainer">
+            <input type="submit" class="submitButton" value="edit" /> 
+        </div>
+    </form>
+</div>
 <%- include("partials/footer.ejs") %>

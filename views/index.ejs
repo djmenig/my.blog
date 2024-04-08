@@ -5,42 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>my.Blog</title>
     <link rel="stylesheet" href="styles/main.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Licorice&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    
 </head>
 <body>
+<div class="hero">
+    <div class="titleContainer">
+        <h1>my.Blog</h1>
+    </div>
+    <nav>
+        <ul>
+            <li><a href="/create">create a Blog post</a></li>
+        </ul>
+    </nav>
+</div>
 
-<h1><a href="/">my.Blog</a></h1>
-<nav>
+<div class="blogPostList">
     <ul>
-        <li><a href="/create">create a Blog entry!</a></li>
+        <% if(locals.blogEntries.length === 0) { %>
+            <h2>No Blog Posts!</h2>
+        <% } else { 
+            locals.blogEntries.forEach((object) => { %>
+            <li>
+                <form action="/view" method="POST">
+                    <input type="hidden" name="title" value="<%= object.title %>" />
+                    <input type="hidden" name="text" value="<%= object.text %>" />
+                    <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
+                    <input type="submit" class="blogPostViewLink" value="<%= object.title %>" />
+                </form>
+                <form  action="/deletePost" method="POST">
+                    <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
+                    <input type="submit" class="deleteButton" value="Delete" /> <!-- USE AN IMAGE OF A TRASHCAN -->
+                </form>
+                <form action="/edit" method="POST">
+                    <input type="hidden" name="title" value="<%= object.title %>" />
+                    <input type="hidden" name="text" value="<%= object.text %>" />
+                    <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
+                    <input type="submit" class="editButton" value="edit" /> 
+                </form>
+            </li>
+            <% }) %> 
+        <% } %>
     </ul>
-</nav>
-
-<ul>
-    <% if(locals.blogEntries.length === 0) { %>
-        <h2>No Blog Posts!</h2>
-    <% } else { 
-        locals.blogEntries.forEach((object) => { %>
-        <li>
-            <form action="/view" method="POST">
-                <input type="hidden" name="title" value="<%= object.title %>" />
-                <input type="hidden" name="text" value="<%= object.text %>" />
-                <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
-                <input type="submit" class="blogPostViewLink" value="<%= object.title %>" />
-            </form>
-            <form  action="/deletePost" method="POST">
-                <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
-                <input type="submit" class="deleteButton" value="Delete" /> <!-- USE AN IMAGE OF A TRASHCAN -->
-            </form>
-            <form action="/edit" method="POST">
-                <input type="hidden" name="title" value="<%= object.title %>" />
-                <input type="hidden" name="text" value="<%= object.text %>" />
-                <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
-                <input type="submit" class="editButton" value="edit" /> 
-            </form>
-        </li>
-        <% }) %> 
-    <% } %>
-</ul>
-
+</div>
 <%- include("partials/footer.ejs") %>
 </html>

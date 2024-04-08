@@ -1,3 +1,175 @@
-html {
-    background-color: blue;
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100svh;
+    margin: 0;
+}
+
+.header {
+    background-color: #F0EDCF;
+    height: 3rem;
+    align-content: center;
+    padding-left: 3rem;
+}
+.header a {
+    font-family: "libre baskerville", serif;
+    font-size: 1.5rem;
+    margin: 0;
+    text-decoration: none;
+    color: black;
+}
+
+
+.hero {
+
+}
+.titleContainer {
+    background-color: #F0EDCF;
+    margin: 0;
+    height: 40svh;
+    align-content: center;
+    padding-left: 20%;
+}
+.titleContainer > h1 {
+    margin: 0;
+    font-family: "libre baskerville", serif;
+    font-size: 5rem;
+}
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #0B60B0;
+    padding: .25rem 0;
+}
+nav ul {
+    margin: 0;
+}
+nav li {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    font-family: "Licorice", cursive;
+    font-size: 2.5rem;
+    text-decoration: none;
+    color: #F0EDCF;
+}
+
+.blogPostList {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.blogPostList h2 {
+    font-family: "Licorice", cursive;
+    font-size: 6rem;
+    transform: rotate(-15deg);
+    margin-top: 7rem;
+}
+.blogPostList li {
+    list-style-type: none;
+    display: flex;
+    margin: 2rem;
+}
+.blogPostViewLink, .deleteButton, .editButton {
+    height: 3rem;
+    width: 45vw;
+    color: #0B60B0;
+    background-color: #F0EDCF;
+    font-family: "Roboto", sans-serif;
+    font-size: 1rem;
+    border: #0b60b020;
+    border-style: solid;
+    border-radius: 20px 0 0 20px;
+    display: flex;
+    padding-left: 2rem;
+}
+.deleteButton, .editButton {
+    width: 5rem;
+    padding: 0;
+    justify-content: center;
+    border-radius: 0;
+    border-left: none;
+}
+.editButton {
+    border-radius: 0 20px 20px 0;
+    padding-right: 1rem;
+}
+
+
+.postCreationContainer {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+h2, .postCreation {
+    font-family: "Licorice", cursive;
+    font-size: 5rem;
+    font-weight: 400;
+    color: #0B60B0;
+    margin: 1rem 0 0 0;
+}
+.postCreationForm {
+    width: 70vw;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    justify-content: space-between;
+}
+.postTitleBox {
+    font-family: "Roboto";
+    font-size: 1rem;
+    width: 40%;
+    padding: .25rem .5rem;
+    margin: 1rem 0;
+}
+.postTextBox {
+    font-family: "Roboto";
+    font-size: 1rem;
+    padding: .5rem;
+    height: 49vh;
+}
+.submitButtonContainer {
+    display: flex;
+    justify-content: center;
+}
+.submitButton {
+    background-color: #0B60B0;
+    color: #F0EDCF;
+    border: none;
+    border-radius: 20px;
+    font-family: "libre baskerville", serif;
+    font-size: 1rem;
+    font-weight: bold;
+    padding: .5rem 1rem;
+    margin: 2rem 0;
+}
+.postViewText {
+    width: 70vw;
+    margin-top: 1rem;
+    font-family: "robot", sans-serif;
+    line-height: 1.5rem;
+    font-size: 1.5rem;
+    padding: .5rem;
+    flex: 1;
+}
+
+
+
+footer {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #0B60B0;
+    width: 100%;
+    height: 2rem;
+}
+footer p {
+    font-family: "libre baskerville", serif;
+    font-size: .75rem;
+    color: #F0EDCF;55    margin: 0;
 }

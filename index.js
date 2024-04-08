@@ -62,7 +62,6 @@ app.post("/deletePost", (req, res) => {
     const index = req.body.index;
     blogEntries.splice(index, 1);
     res.redirect("/");
-    console.log(index);
 });
 
 app.listen(port, () => {
