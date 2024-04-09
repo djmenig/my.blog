@@ -1,3 +1,7 @@
+html {
+    min-width: 350px;
+}
+
 body {
     display: flex;
     flex-direction: column;
@@ -24,10 +28,11 @@ body {
 
 }
 .titleContainer {
+    display: flex;
     background-color: #F0EDCF;
     margin: 0;
     height: 40svh;
-    align-content: center;
+    align-items: center;
     padding-left: 20%;
 }
 .titleContainer > h1 {
@@ -41,8 +46,9 @@ nav {
     background-color: #0B60B0;
     padding: .25rem 0;
 }
-nav ul {
+ul {
     margin: 0;
+    padding: 0;
 }
 nav li {
     list-style-type: none;
@@ -61,13 +67,17 @@ nav a {
     flex: 1;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
-
+.blogPostList ul {
+    display: flex;
+    justify-content: center;
+}
 .blogPostList h2 {
     font-family: "Licorice", cursive;
     font-size: 6rem;
+    text-align: center;
     transform: rotate(-15deg);
-    margin-top: 7rem;
 }
 .blogPostList li {
     list-style-type: none;
@@ -173,3 +183,15 @@ footer p {
     font-size: .75rem;
     color: #F0EDCF;55    margin: 0;
 }
+
+@media (max-width: 576px) {
+    .titleContainer {
+        padding-left: 0;
+        justify-content: center;
+    }
+}
+@media (max-width: 472px) {
+    .blogPostList h2 {
+        transform: rotate(0deg);
+    }
+} 
