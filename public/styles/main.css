@@ -84,7 +84,7 @@ nav a {
 .blogPostViewLink, .deleteButton, .editButton {
     height: 3rem;
     width: 45vw;
-    color: black;
+    color: #0B60B0;
     background-color: #F0EDCF;
     font-family: "Roboto", sans-serif;
     font-size: 1rem;
@@ -99,7 +99,6 @@ nav a {
     width: 3rem;
     border-radius: 0;
     text-align: center;
-    color: #0B60B0;
 }
 .editButton {
     border-radius: 0 20px 20px 0;

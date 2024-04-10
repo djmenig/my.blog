@@ -33,7 +33,7 @@
                     <input type="hidden" name="title" value="<%= object.title %>" />
                     <input type="hidden" name="text" value="<%= object.text %>" />
                     <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
-                    <input type="submit" class="blogPostViewLink" value="<%= object.title %>" />
+                    <input type="submit" class="blogPostViewLink" value="<%= `"${object.title}"` %>" />
                 </form>
                 <form  action="/deletePost" method="POST">
                     <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
