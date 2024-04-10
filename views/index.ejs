@@ -29,7 +29,7 @@
         <% } else { 
             locals.blogEntries.forEach((object) => { %>
             <li>
-                <form action="/view" method="POST">
+                <form class="blogPostListForm" action="/view" method="POST">
                     <input type="hidden" name="title" value="<%= object.title %>" />
                     <input type="hidden" name="text" value="<%= object.text %>" />
                     <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
@@ -37,13 +37,15 @@
                 </form>
                 <form  action="/deletePost" method="POST">
                     <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
-                    <input type="submit" class="deleteButton" value="Delete" /> <!-- USE AN IMAGE OF A TRASHCAN -->
+                    <!-- <input type="submit" class="deleteButton" value="Delete" /> -->
+                    <button type="submit" class="deleteButton"><i class="fa-regular fa-trash-can"></i></button>
                 </form>
                 <form action="/edit" method="POST">
                     <input type="hidden" name="title" value="<%= object.title %>" />
                     <input type="hidden" name="text" value="<%= object.text %>" />
                     <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
-                    <input type="submit" class="editButton" value="edit" /> 
+                    <!-- <input type="submit" class="editButton" value="edit" /> -->
+                    <button type="submit" class="editButton"><i class="fa-regular fa-pen-to-square"></i></button>
                 </form>
             </li>
             <% }) %> 
