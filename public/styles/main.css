@@ -22,6 +22,9 @@ body {
     text-decoration: none;
     color: black;
 }
+.header a:hover {
+    color: #0B60B0;
+}
 
 
 .hero {
@@ -55,12 +58,14 @@ nav li {
     margin: 0;
     padding: 0;
 }
-
 nav a {
     font-family: "Licorice", cursive;
     font-size: 2.5rem;
     text-decoration: none;
     color: #F0EDCF;
+}
+nav a:hover {
+    color: #F0EDCFAA;
 }
 
 .blogPostList {
@@ -94,6 +99,13 @@ nav a {
     overflow: hidden;
     text-overflow: ellipsis;
     text-align: left;
+    cursor: pointer;
+}
+.blogPostViewLink:hover {
+    filter: brightness(98%);
+}
+.blogPostViewLink:hover, .deleteButton:hover, .editButton:hover {
+    color: #0B60B0AA;
 }
 .deleteButton, .editButton {
     width: 3rem;
@@ -154,6 +166,10 @@ h2, .postCreation {
     font-weight: bold;
     padding: .5rem 1rem;
     margin: 2rem 0;
+    cursor: pointer;
+}
+.submitButton:hover {
+    filter: brightness(115%);
 }
 .postViewText {
     width: 70vw;
