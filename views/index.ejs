@@ -35,7 +35,7 @@
                     <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
                     <input type="submit" class="blogPostViewLink" value="<%= `"${object.title}"` %>" />
                 </form>
-                <form  action="/deletePost" method="POST">
+                <form  action="/deletePost" method="POST" onsubmit="return confirm('Are you sure you want to delete the <%= `"${object.title}"` %> blog post?')">
                     <input type="hidden" name="index" value="<%= locals.blogEntries.indexOf(object) %>" />
                     <!-- <input type="submit" class="deleteButton" value="Delete" /> -->
                     <button type="submit" class="deleteButton"><i class="fa-regular fa-trash-can"></i></button>
