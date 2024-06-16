@@ -1,8 +1,3 @@
-/*Styling and Polishing
-Style the application. This includes creating a CSS file, linking it to your EJS templates, and writing CSS or using Bootstrap/Flexbox/Grid to style the application.
-Test the application on different devices and browsers to ensure the styling works correctly.
-Fix any bugs or issues that came up during testing. */
-
 import express from "express";
 import bodyParser from "body-parser";
 

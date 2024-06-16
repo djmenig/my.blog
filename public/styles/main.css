@@ -25,7 +25,9 @@ body {
 .header a:hover {
     color: #0B60B0;
 }
-
+.smallH1 {
+    margin: 0;
+}
 
 .hero {
 
